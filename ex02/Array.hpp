@@ -20,7 +20,7 @@ class Array {
             {
                 this->_size = obj._size;
                 this->_array = new T[obj._size];
-                for (unsigned int i = 0; i < obj._sizel; i++)
+                for (unsigned int i = 0; i < obj._size; i++)
                     this->_array[i] = obj._array[i];
             }
             else
@@ -40,8 +40,8 @@ class Array {
             return (*this);
         }
 
-        T &operator [](int i) {
-            if(i >= this->_size || i < 0)
+        T &operator [](unsigned int i) {
+            if(i >= this->_size || this->_array == nullptr)
                 throw outOfBounds();
             return (this->_array[i]);
         }
